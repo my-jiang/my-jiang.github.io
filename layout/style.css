@@ -19,7 +19,7 @@ body {
   float: left;
   margin: 20px;
   margin-left: 50px;
-  max-width: 20%;
+  /*max-width: 20%;*/
   justify-content: center;
 }
 .sidebar{
@@ -29,14 +29,27 @@ body {
 .main{
   background-color: #FFFFFF;
   float: left;
-  padding-left: 40px;
   margin: 20px;
-  margin-left: 40px;
-  max-width: 80%;
+  /*margin-left: 40px;*/
+  margin-right: 60px;
+  /*max-width: 80%;*/
   justify-content: center;
 }
 .main{
   a{margin:0px 6px 0px 6px;border-bottom:2px}
+}
+
+
+#content1{
+  border-bottom: solid 4px black;
+  background-color: #FFFFFF;
+  justify-content: center;
+}
+
+#content3{
+  border-bottom: solid 4px black;
+  background-color: #FFFFFF;
+  justify-content: center;
 }
 
 
@@ -72,3 +85,99 @@ a:hover {
 a:active {
   color: blue;
 } 
+
+@media screen and (min-width: 1150px){
+  .row{
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-column-gap: 0px;
+    grid-template-areas: 
+      "sidebar main"
+  }
+}
+
+@media screen and (min-width: 1150px) and (max-width: 1580px){
+  .row{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-column-gap: 0px;
+    grid-template-areas: 
+      "sidebar main"
+  }
+}
+
+@media screen and (min-width: 1020px)  and (max-width: 1150px) {
+  .row{
+    display: grid;
+    grid-template-columns: 23% 77%;
+    grid-column-gap: 0px;
+    grid-template-areas: 
+      "sidebar main"
+  }
+
+  .main{
+    margin: 20px;
+    margin-right: 20px;
+  }
+
+}
+
+@media screen and (min-width: 420px) and (max-width: 1020px){
+  .sidebar{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 0px;
+    grid-template-areas: 
+      "side1 side2"
+  }
+
+  .row{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-column-gap: 0px;
+    grid-template-areas: 
+      "sidebar"
+      "main"
+  }
+
+  .side2{
+    background-color: #FFFFFF;
+    float: right;
+    /*margin: 20px;
+    margin-left: 50px;
+    max-width: 20%;*/
+    justify-content: right;
+  }
+
+  .main{
+    margin: 20px;
+    margin-right: 20px;
+  }
+
+}
+
+@media screen and  (max-width: 420px){
+  .row{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-column-gap: 0px;
+    grid-template-areas: 
+      "sidebar"
+      "main"
+  }
+
+  .sidebar{
+    background-color: #FFFFFF;
+    float: center;
+    /*margin: 20px;
+    margin-left: 50px;
+    max-width: 20%;*/
+    justify-content: center;
+  }
+
+  .main{
+    margin: 20px;
+    margin-right: 20px;
+  }
+
+}
