@@ -1,0 +1,266 @@
+---
+title: "COVID-19 Explotary Data Analysis"
+author: "Iris Jiang"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output:
+   rmdformats::readthedown:
+    fig_width: 24
+    fig_height: 10
+    fig_caption: true
+    self_contained: false
+    thumbnails: false
+    lightbox: false
+    gallery: false
+    highlight: kate
+    toc_depth: 5
+    toc_float: true
+    css: custom.css
+---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(cache = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.width = 24)
+knitr::opts_chunk$set(fig.height = 10)
+knitr::opts_chunk$set(results = "asis")
+```
+
+
+```{r}
+## Libraries
+library(ggplot2)
+library(dplyr)
+library(reshape2)
+library(data.table)
+```
+
+
+```{r}
+confirmed <- read.csv("time_series_covid19_confirmed_global.csv")
+deaths <- read.csv("time_series_covid19_deaths_global.csv")
+
+confirmed <- confirmed %>% 
+  rename(Country = Country.Region) %>%
+  group_by(Country) %>%
+  select(-Lat, -Long) %>%
+  ungroup
+
+col_names <- colnames(confirmed)[-(1:2)]
+date_list <- substr(col_names, 2, nchar(col_names)-3)
+date_list <- gsub("[.]", "/", date_list)
+date_list <- paste("2020/", date_list, sep = "")
+
+confirmed_by_country <- rbindlist(lapply(1:length(date_list), function(n){
+  confirmed %>% 
+    select(Country, !!col_names[n]) %>%
+    rename(Cases = !!col_names[n]) %>%
+    mutate(Date = as.Date(date_list[n])) %>%
+    group_by(Country, Date) %>%
+    summarise(Confirmed_Cases = sum(Cases)) %>%
+    ungroup
+}))  %>%
+    group_by(Country) %>%
+    mutate(Confirmed_Changes = Confirmed_Cases - lag(Confirmed_Cases)) %>%
+    ungroup
+
+deaths <- deaths %>% 
+  rename(Country = Country.Region) %>%
+  group_by(Country) %>%
+  select(-Lat, -Long) %>%
+  ungroup
+
+deaths_by_country <- (rbindlist(lapply(1:length(date_list), function(n){
+  deaths %>% 
+    select(Country, !!col_names[n]) %>%
+    rename(Cases = !!col_names[n]) %>%
+    mutate(Date = as.Date(date_list[n])) %>%
+    group_by(Country, Date) %>%
+    summarise(Death_Cases = sum(Cases)) %>%
+    ungroup
+}))) %>%
+    group_by(Country) %>%
+    mutate(Death_Changes = Death_Cases - lag(Death_Cases)) %>%
+    ungroup
+
+interested_countries <- merge(confirmed_by_country, deaths_by_country, all = T) %>%
+  filter(Country %in% c("China", "US", "Canada", "United Kingdom", "Italy", "Germany", "Spain"))
+
+```
+
+## Global Trend
+
+### Confirmed Cases
+```{r}
+ggplot(interested_countries) +
+  geom_line(aes(x = Date, y = Confirmed_Cases, group = Country, color = Country), size = 1.5) + 
+  xlab(NULL) +
+  theme(legend.title = element_blank()) + 
+  ylab("Confirmed Cases") +
+  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  theme(legend.text = element_text(size=16),
+        text = element_text(size=20))
+```
+
+### Confirmed Cases (log scale)
+```{r}
+ggplot(interested_countries) +
+  geom_line(aes(x = Date, y = Confirmed_Cases, group = Country, color = Country), size = 1.5) + 
+  xlab(NULL) +
+  scale_y_log10() +
+  theme(legend.title = element_blank()) + 
+  ylab("Confirmed Cases") +
+  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  theme(legend.text = element_text(size=16),
+        text = element_text(size=20))
+```
+
+### Daily Change in Confirmed Cases
+
+```{r}
+ggplot(interested_countries) +
+  geom_line(aes(x = Date, y = Confirmed_Changes, group = Country, color = Country), size = 1.5) + 
+  xlab(NULL) +
+  theme(legend.title = element_blank()) + 
+  ylab("Changes of Confirmed Cases") +
+  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  theme(legend.text = element_text(size=16),
+        text = element_text(size=20))
+```
+
+
+### Death Cases
+```{r}
+ggplot(interested_countries) +
+  geom_line(aes(x = Date, y = Death_Cases, group = Country, color = Country), size = 1.5) + 
+  xlab(NULL) +
+  theme(legend.title = element_blank()) + 
+  ylab("Death Cases") +
+  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  theme(legend.text = element_text(size=16),
+        text = element_text(size=20))
+```
+
+### Daily Change in Death Cases
+
+```{r}
+ggplot(interested_countries) +
+  geom_line(aes(x = Date, y = Death_Changes, group = Country, color = Country), size = 1.5) + 
+  xlab(NULL) +
+  theme(legend.title = element_blank()) + 
+  ylab("Changes of Death Cases") +
+  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  theme(legend.text = element_text(size=16),
+        text = element_text(size=20))
+```
+
+## Canadian Local Trend
+
+```{r}
+confirmed_in_CA <- confirmed %>% 
+  filter(Country == "Canada") %>%
+  rename(Province = Province.State)
+
+confirmed_in_CA <- rbindlist(lapply(1:length(date_list), function(n){
+  confirmed_in_CA %>% 
+    select(Province, !!col_names[n]) %>%
+    rename(Cases = !!col_names[n]) %>%
+    mutate(Date = as.Date(date_list[n])) %>%
+    group_by(Province, Date) %>%
+    summarise(Confirmed_Cases = sum(Cases)) %>%
+    ungroup 
+}))  %>%
+    group_by(Province) %>%
+    mutate(Confirmed_Changes = Confirmed_Cases - lag(Confirmed_Cases)) %>%
+    ungroup
+
+death_in_CA <- deaths %>% 
+  filter(Country == "Canada") %>%
+  rename(Province = Province.State)
+
+
+death_in_CA <- rbindlist(lapply(1:length(date_list), function(n){
+  death_in_CA %>% 
+    select(Province, !!col_names[n]) %>%
+    rename(Cases = !!col_names[n]) %>%
+    mutate(Date = as.Date(date_list[n])) %>%
+    group_by(Province, Date) %>%
+    summarise(Death_Cases = sum(Cases)) %>%
+    ungroup %>%
+    mutate( Changes = Death_Cases - lag(Death_Cases)) %>%
+    ungroup
+})) %>%
+    group_by(Province) %>%
+    mutate(Death_Changes = Death_Cases - lag(Death_Cases)) %>%
+    ungroup
+
+summary_ca <- merge(confirmed_in_CA, death_in_CA, all = T) 
+
+```
+
+### Confirmed Cases
+```{r}
+ggplot(summary_ca) +
+  geom_line(aes(x = Date, y = Confirmed_Cases, group = Province, color = Province), size = 1.5) + 
+  xlab(NULL) +
+  theme(legend.title = element_blank()) + 
+  ylab("Confirmed Cases") +
+  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  theme(legend.text = element_text(size=16),
+        text = element_text(size=20))
+```
+
+### Confirmed Cases (log scale)
+```{r}
+ggplot(summary_ca) +
+  geom_line(aes(x = Date, y = Confirmed_Cases, group = Province, color = Province), size = 1.5) + 
+  xlab(NULL) +
+  scale_y_log10() +
+  theme(legend.title = element_blank()) + 
+  ylab("Confirmed Cases") +
+  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  theme(legend.text = element_text(size=16),
+        text = element_text(size=20))
+```
+
+### Daily Change in Confirmed Cases
+
+```{r}
+ggplot(summary_ca) +
+  geom_line(aes(x = Date, y = Confirmed_Changes, group = Province, color = Province), size = 1.5) + 
+  xlab(NULL) +
+  theme(legend.title = element_blank()) + 
+  ylab("Changes of Confirmed Cases") +
+  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  theme(legend.text = element_text(size=16),
+        text = element_text(size=20))
+```
+
+
+### Death Cases
+```{r}
+ggplot(summary_ca) +
+  geom_line(aes(x = Date, y = Death_Cases, group = Province, color = Province), size = 1.5) + 
+  xlab(NULL) +
+  theme(legend.title = element_blank()) + 
+  ylab("Death Cases") +
+  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  theme(legend.text = element_text(size=16),
+        text = element_text(size=20))
+```
+
+### Daily Change in Death Cases
+
+```{r}
+ggplot(summary_ca) +
+  geom_line(aes(x = Date, y = Death_Changes, group = Province, color = Province), size = 1.5) + 
+  xlab(NULL) +
+  theme(legend.title = element_blank()) + 
+  ylab("Changes of Death Cases") +
+  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  theme(legend.text = element_text(size=16),
+        text = element_text(size=20))
+```
+
+The data is retrieved from <https://data.humdata.org/dataset/novel-coronavirus-2019-ncov-cases>. The Rmd theme is `readthedown` from the package `rmdformats`.
