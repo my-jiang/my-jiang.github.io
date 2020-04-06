@@ -38,9 +38,15 @@ library(data.table)
 
 
 ```{r}
-confirmed <- read.csv("time_series_covid19_confirmed_global.csv")
-deaths <- read.csv("time_series_covid19_deaths_global.csv")
+# confirmed <- read.csv("time_series_covid19_confirmed_global.csv")
+# deaths <- read.csv("time_series_covid19_deaths_global.csv")
 
+# Read data files from website
+confirmed <- read.csv("https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_confirmed_global.csv&filename=time_series_covid19_confirmed_global.csv")
+deaths <- read.csv("https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_deaths_global.csv&filename=time_series_covid19_deaths_global.csv")
+
+
+# Reshape data
 confirmed <- confirmed %>% 
   rename(Country = Country.Region) %>%
   group_by(Country) %>%
@@ -98,9 +104,10 @@ ggplot(interested_countries) +
   xlab(NULL) +
   theme(legend.title = element_blank()) + 
   ylab("Confirmed Cases") +
-  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  scale_x_date(date_breaks = "3 days",  date_labels = "%m-%d", minor_breaks = NULL) + 
   theme(legend.text = element_text(size=16),
-        text = element_text(size=20))
+        text = element_text(size=20)) + 
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 10), labels = scales::scientific)
 ```
 
 ### Confirmed Cases (log scale)
@@ -108,12 +115,12 @@ ggplot(interested_countries) +
 ggplot(interested_countries) +
   geom_line(aes(x = Date, y = Confirmed_Cases, group = Country, color = Country), size = 1.5) + 
   xlab(NULL) +
-  scale_y_log10() +
   theme(legend.title = element_blank()) + 
   ylab("Confirmed Cases") +
-  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  scale_x_date(date_breaks = "3 days",  date_labels = "%m-%d", minor_breaks = NULL) + 
   theme(legend.text = element_text(size=16),
-        text = element_text(size=20))
+        text = element_text(size=20)) + 
+  scale_y_continuous(trans='log10', breaks = scales::breaks_log(n = 10, base = 10), labels = scales::scientific)
 ```
 
 ### Daily Change in Confirmed Cases
@@ -124,9 +131,10 @@ ggplot(interested_countries) +
   xlab(NULL) +
   theme(legend.title = element_blank()) + 
   ylab("Changes of Confirmed Cases") +
-  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  scale_x_date(date_breaks = "3 days",  date_labels = "%m-%d", minor_breaks = NULL) + 
   theme(legend.text = element_text(size=16),
-        text = element_text(size=20))
+        text = element_text(size=20)) + 
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 10), labels = scales::scientific)
 ```
 
 
@@ -137,9 +145,23 @@ ggplot(interested_countries) +
   xlab(NULL) +
   theme(legend.title = element_blank()) + 
   ylab("Death Cases") +
-  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  scale_x_date(date_breaks = "3 days",  date_labels = "%m-%d", minor_breaks = NULL) + 
   theme(legend.text = element_text(size=16),
-        text = element_text(size=20))
+        text = element_text(size=20)) + 
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 10), labels = scales::scientific)
+```
+
+### Death Cases (log scale)
+```{r}
+ggplot(interested_countries) +
+  geom_line(aes(x = Date, y = Death_Cases, group = Country, color = Country), size = 1.5) + 
+  xlab(NULL) +
+  theme(legend.title = element_blank()) + 
+  ylab("Death Cases") +
+  scale_x_date(date_breaks = "3 days",  date_labels = "%m-%d", minor_breaks = NULL) + 
+  theme(legend.text = element_text(size=16),
+        text = element_text(size=20)) + 
+  scale_y_continuous(trans='log10', breaks = scales::breaks_log(n = 10, base = 10), labels = scales::scientific)
 ```
 
 ### Daily Change in Death Cases
@@ -150,9 +172,24 @@ ggplot(interested_countries) +
   xlab(NULL) +
   theme(legend.title = element_blank()) + 
   ylab("Changes of Death Cases") +
-  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  scale_x_date(date_breaks = "3 days",  date_labels = "%m-%d", minor_breaks = NULL) + 
   theme(legend.text = element_text(size=16),
-        text = element_text(size=20))
+        text = element_text(size=20)) + 
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 10))
+```
+
+### Daily Change in Death Cases (log scale)
+
+```{r}
+ggplot(interested_countries) +
+  geom_line(aes(x = Date, y = Death_Changes, group = Country, color = Country), size = 1.5) + 
+  xlab(NULL) +
+  theme(legend.title = element_blank()) + 
+  ylab("Changes of Death Cases") +
+  scale_x_date(date_breaks = "3 days",  date_labels = "%m-%d", minor_breaks = NULL) + 
+  theme(legend.text = element_text(size=16),
+        text = element_text(size=20)) + 
+  scale_y_continuous(trans='log10', breaks = scales::breaks_log(n = 10, base = 10), labels = scales::scientific)
 ```
 
 ## Canadian Local Trend
@@ -206,9 +243,10 @@ ggplot(summary_ca) +
   xlab(NULL) +
   theme(legend.title = element_blank()) + 
   ylab("Confirmed Cases") +
-  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  scale_x_date(date_breaks = "3 days",  date_labels = "%m-%d", minor_breaks = NULL) + 
   theme(legend.text = element_text(size=16),
-        text = element_text(size=20))
+        text = element_text(size=20)) + 
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 10))
 ```
 
 ### Confirmed Cases (log scale)
@@ -216,12 +254,12 @@ ggplot(summary_ca) +
 ggplot(summary_ca) +
   geom_line(aes(x = Date, y = Confirmed_Cases, group = Province, color = Province), size = 1.5) + 
   xlab(NULL) +
-  scale_y_log10() +
   theme(legend.title = element_blank()) + 
   ylab("Confirmed Cases") +
-  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  scale_x_date(date_breaks = "3 days",  date_labels = "%m-%d", minor_breaks = NULL) + 
   theme(legend.text = element_text(size=16),
-        text = element_text(size=20))
+        text = element_text(size=20)) + 
+  scale_y_continuous(trans='log10', breaks = scales::breaks_log(n = 10, base = 10), labels = scales::scientific)
 ```
 
 ### Daily Change in Confirmed Cases
@@ -232,9 +270,10 @@ ggplot(summary_ca) +
   xlab(NULL) +
   theme(legend.title = element_blank()) + 
   ylab("Changes of Confirmed Cases") +
-  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  scale_x_date(date_breaks = "3 days",  date_labels = "%m-%d", minor_breaks = NULL) + 
   theme(legend.text = element_text(size=16),
-        text = element_text(size=20))
+        text = element_text(size=20)) + 
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 10))
 ```
 
 
@@ -245,9 +284,10 @@ ggplot(summary_ca) +
   xlab(NULL) +
   theme(legend.title = element_blank()) + 
   ylab("Death Cases") +
-  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  scale_x_date(date_breaks = "3 days",  date_labels = "%m-%d", minor_breaks = NULL) + 
   theme(legend.text = element_text(size=16),
-        text = element_text(size=20))
+        text = element_text(size=20)) + 
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 10))
 ```
 
 ### Daily Change in Death Cases
@@ -258,9 +298,11 @@ ggplot(summary_ca) +
   xlab(NULL) +
   theme(legend.title = element_blank()) + 
   ylab("Changes of Death Cases") +
-  scale_x_date(date_breaks = "1 week", minor_breaks = NULL) + 
+  scale_x_date(date_breaks = "3 days",  date_labels = "%m-%d", minor_breaks = NULL) + 
   theme(legend.text = element_text(size=16),
-        text = element_text(size=20))
+        text = element_text(size=20)) + 
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 10))
 ```
+
 
 The data is retrieved from <https://data.humdata.org/dataset/novel-coronavirus-2019-ncov-cases>. The Rmd theme is `readthedown` from the package `rmdformats`.
