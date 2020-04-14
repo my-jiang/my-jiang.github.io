@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+
+    {% include meta.html %}
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }} - Lecture Notes</a></h1>
+            <p class="site-description">{{ site.description }}</p>
+          </div>
+
+          <nav>
+            {% for item in site.nav_header %}
+              <a href="{{ item.url }}">{{ item.title }}</a>
+            {% endfor %}
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      
+<article class="notes">
+  <div class="entry">
+  <div id="content1">
+      <h2> Disclaimer </h2> 
+          <p>These notes are written in their entirety by me, Iris Jiang, while attending lectures at the University of Waterloo. They are provided as is and free of charge. No monetary compensation was received for these notes. I have no intentions of violating any University of Waterloo policies and will gladly honour takedown notices produced by an authorized University of Waterloo representative.</p>
+          <p>These notes are by no means authoritative so please use them at your own peril.</p>
+  </div>
+
+
+  <div class="notes-main">
+    {% assign subjects = site.notes | map: "subject" | uniq | sort %}
+    {% assign courses = site.notes %}
+    {% for subject in subjects %}
+        <h2>{{ subject }}</h2>
+        <ul>
+        {% for course in courses %}
+          {% if course.subject contains subject %}
+            <li>
+                <a href="{{ course.url }}">{{ course.title }}</a>
+            </li>
+            <br>
+          {% endif %}
+        {% endfor %}
+        </ul>
+    {% endfor %}
+  </div>
+    
+  <p> Some other notes you might find useful: <a href="https://notes.sibeliusp.com"> Sibelius Peng</a></p>
+
+  <div id="content2">
+    <h2> Contact </h2>
+    <p> If you spot a typo or have any question, please <a href="mailto: m64jiang@gmail.com?subject=Lecture Notes Question"> contact me</a>.</p> 
+  </div>
+  </div>
+</article>
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          {% include svg-icons.html %}
+        </footer>
+        <div class = "copyright">
+           <p> &copy; {{ site.name }} {{ site.time | date: '%Y' }} | All Rights Reserved. </p>
+        </div>
+      </div>
+    </div>
+
+    {% include analytics.html %}
+  </body>
+</html>
+
