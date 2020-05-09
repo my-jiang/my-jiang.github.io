@@ -1,12 +1,8 @@
 ---
-author:
-- |
-    Professor Pengfei Li\
-    Summarized by Iris Jiang
-date: Spring 2019
-title: |
-    STAT333 Applied Probability\
-    Notes Summary
+layout: notes-page
+title: STAT333 Applied Probability - Notes Summary
+permalink: /STAT333final/
+    
 ---
 
 Introduction
