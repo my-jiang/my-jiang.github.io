@@ -11,25 +11,29 @@ Introduction
 Distributions
 -------------
 
-**Bernoulli trials**\
+**Bernoulli trials**
+
 *Definition*
 
 1.  Each trial has 2 outcomes: "s\" (success) or "f\" (failure)
 
 2.  All trials are independent
 
-3.  Probability of "s\" ( \(P(s)\) ) on each trail are the same
+3.  Probability of "s\" \( (P(s) \) on each trail are the same
 
-*Notation*: \(p=P(success),\> q=1-p=P(failure)\)\
+*Notation*: \(p=P(success),\> q=1-p=P(failure)​\)
+
 *Bernoulli Random Variables:* $\sim Bernoulli(p)$, $p$ is the
-probability of success\
+probability of success
+
 Let $I_i =
         \begin{cases}
             1 \hspace{2ex}*\text{if ``s" appears on the $i^{th}$ trail} \\
             0 \hspace{2ex}*\text{otherwise}
-        \end{cases}$\
+        \end{cases}$
 Then, $P(I_i=1)=p$ & $P(I_i=0)=q$, where $I_1,I_2,...,I_n$ are a
-sequence of i.i.d. (independent identically distributed) Bernoulli rvs\
+sequence of i.i.d. (independent identically distributed) Bernoulli rvs
+
 *Formulas: $X \sim Bernoulli(p)$*
 
 -   $P(X=0)=1-p$ and $P(X=1)=q$
@@ -40,10 +44,11 @@ sequence of i.i.d. (independent identically distributed) Bernoulli rvs\
 
 -   $pgf=1-p+ps$
 
-\
-*Notation:* $\sim Bin(n,p)$\
+*Notation:* $\sim Bin(n,p)$
+
 *Range:* $x=\{0,1,2,...,n\}$ $x=$ number of "s\" in $n$ Bernoulli
 trials\
+
 *Formulas: $X \sim Bin(n,p)$*
 
 -   $P(X=k)={n \choose k} P^k (1-p)^n-k,\> k=0,1,...,n$
@@ -59,16 +64,21 @@ trials\
 1.  $x=\sum_{i=1}^nI_i$
 
 2.  If $x_1 \sim Bin(n_1,p) \> x_2 \sim Bin(n_2,p)$, and $x_1,x_2$ are
-    independent,\
+    independent,
+    
     then $x_1+x_2 \sim Bin(n_1+n_2,p)$
 
-**Geometric rvs**\
-Geometric rv is a waiting time rv.\
-*Definition*\
+**Geometric rvs**
+Geometric rv is a waiting time rv.
+
+*Definition*
+
 $x=$ number of trails to get first \"s\" in the sequence of Bernoulli
-trials\
-*Range:* $x=\{1,2,...\}$\
-*Formulas: $X \sim Geo(p)$*\
+trials
+
+*Range:* $x=\{1,2,...\}$
+
+*Formulas: $X \sim Geo(p)$*
 
 -   $P(X=k)=p(1-p)^{k-1}, k=1,2,...$
 
@@ -78,15 +88,16 @@ trials\
 
 -   $pgf=\frac{ps}{1-(1-p)s}$
 
-*Property: no-memory property*\
+*Property: no-memory property*
+
 $$P(x>n+m|x>m)=P(x>n)=P(\underbrace{x-m}_{Remaining\> Time}>n\> |\underbrace{x>m}_{at\> time\> m,\> we\> do\> not\> observe\> "s"})$$
-he property tells us given that we do not observe the event \"s\",\
-he remaining time $\sim Geo(p)$
+the property tells us given that we do not observe the event \"s\", the remaining time $\sim Geo(p)$
 
 Indicator rv
 ------------
 
-**Definition**\
+**Definition**
+
 or a given event $A$, we define $I_A=
         \begin{cases}
             1 \hspace{2ex}*\text{if A occurs} \\
@@ -105,13 +116,13 @@ Useful Relationships
 
 -   $P(E \cap F)=P(F|E)P(E)$
 
--   $Var(X)=E(X^2)-[E(X)]^2$\
+-   $Var(X)=E(X^2)-[E(X)]^2$
 
--   $Cov(X,Y)=E(XY)-E(X)E(Y)$\
+-   $Cov(X,Y)=E(XY)-E(X)E(Y)$
     If $X$ and $Y$ are independent, then $Cov(X,Y)=0$ or
     $E(XY)=E(X)E(Y)$
 
--   $Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)$\
+-   $Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)$
     If $X$ and $Y$ are independent, then $Var(X+Y)=Var(X)+Var(Y)$
 
 Waiting Time RVs
@@ -132,13 +143,13 @@ Classification of $T_E$
 
 1.  If $T_E$ is improper $\Rightarrow$ $E(T_E)=\infty$
 
-2.  If $E(T_E)<\infty \Rightarrow T_E$ is short proper.\
+2.  If $E(T_E)<\infty \Rightarrow T_E$ is short proper.
     (We do not need to verify $P(T_E<\infty)=1$)
 
 Notes
 -----
 
-enote $R$ as the remaining time for event $X$, then $R$ and $X$ follow
+Denote $R$ as the remaining time for event $X$, then $R$ and $X$ follow
 the same distribution and we have $E(X)=E(R)$ and $E(X^2)=E(R^2)$
 
 Conditional Expectation
@@ -147,7 +158,7 @@ Conditional Expectation
 Joint RVs
 ---------
 
-**pmf and pdf**\
+**pmf and pdf**
 
 -   $$f_{X}(x)=
             \begin{cases}
@@ -163,16 +174,16 @@ Joint RVs
 
 **Property**
 
-1.  If $X\& Y$ are independent, then $g(x) \& h(y)$ are independent
+1.  If $X\& Y$ are independent, then $$g(x) \& h(y)$$ are independent
 
-2.  If $X\& Y$ are independent, then $E[g(x)h(y)]=E[g(x)]E[h(y)]$
+2.  If $X\& Y$ are independent, then $$E[g(x)h(y)]=E[g(x)]E[h(y)]$$
 
 Conditional Expectation
 -----------------------
 
-**Conditional Distribution**\
+**Conditional Distribution**
 or a given $y$, the conditional pmf/pdf for $X$ given $Y=y$ is
-$$f_{X|Y}(x|y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}, f_Y(y)>0$$\
+$$f_{X|Y}(x|y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}, f_Y(y)>0$$
 **Conditional Expectation**
 
 -   The conditional expectation of $x$ given $Y=y$ is $$E(X|Y=y)=
