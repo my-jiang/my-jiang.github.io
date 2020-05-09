@@ -21,52 +21,51 @@ Distributions
 
 3.  Probability of "s\" \( (P(s) \) on each trail are the same
 
-*Notation*: \(p=P(success),\> q=1-p=P(failure)​\)
+*Notation*: \(p=P(success), q=1-p=P(failure)\)
 
-*Bernoulli Random Variables:* $\sim Bernoulli(p)$, $p$ is the
+*Bernoulli Random Variables:* $$\sim Bernoulli(p)$$, $$p$$ is the
 probability of success
 
-Let $I_i =
+Let $$I_i =
         \begin{cases}
             1 \hspace{2ex}*\text{if ``s" appears on the $i^{th}$ trail} \\
             0 \hspace{2ex}*\text{otherwise}
-        \end{cases}$
-Then, $P(I_i=1)=p$ & $P(I_i=0)=q$, where $I_1,I_2,...,I_n$ are a
+        \end{cases}$$
+Then, $$P(I_i=1)=p$$ & $$P(I_i=0)=q$$, where $$I_1,I_2,...,I_n$$ are a
 sequence of i.i.d. (independent identically distributed) Bernoulli rvs
 
-*Formulas: $X \sim Bernoulli(p)$*
+*Formulas: $$X \sim Bernoulli(p)$$*
 
--   $P(X=0)=1-p$ and $P(X=1)=q$
+-   $$P(X=0)=1-p$$ and $$P(X=1)=q$$
 
--   $E(X)=p$
+-   $$E(X)=p$$
 
--   $Var(X)=p(1-p)$
+-   $$Var(X)=p(1-p)$$
 
--   $pgf=1-p+ps$
+-   $$pgf=1-p+ps$$
 
-*Notation:* $\sim Bin(n,p)$
+*Notation:* $$\sim Bin(n,p)$$
 
-*Range:* $x=\{0,1,2,...,n\}$ $x=$ number of "s\" in $n$ Bernoulli
-trials\
+*Range:* $$x=\{0,1,2,...,n\}$$ $$x=$$ number of "s\" in $$n$$ Bernoulli trials
 
-*Formulas: $X \sim Bin(n,p)$*
+*Formulas: $$X \sim Bin(n,p)$$*
 
--   $P(X=k)={n \choose k} P^k (1-p)^n-k,\> k=0,1,...,n$
+-   $$P(X=k)={n \choose k} P^k (1-p)^n-k,\> k=0,1,...,n$$
 
--   $E(X)=np$
+-   $$E(X)=np$$
 
--   $Var(X)=np(1-p)$
+-   $$Var(X)=np(1-p)$$
 
--   $pgf=(1-p+ps)^n$
+-   $$pgf=(1-p+ps)^n$$
 
 *Results:*
 
-1.  $x=\sum_{i=1}^nI_i$
+1.  $$x=\sum_{i=1}^nI_i$$
 
-2.  If $x_1 \sim Bin(n_1,p) \> x_2 \sim Bin(n_2,p)$, and $x_1,x_2$ are
+2.  If $$x_1 \sim Bin(n_1,p) \> x_2 \sim Bin(n_2,p)$$, and $$x_1,x_2$$ are
     independent,
     
-    then $x_1+x_2 \sim Bin(n_1+n_2,p)$
+    then $$x_1+x_2 \sim Bin(n_1+n_2,p)$$
 
 **Geometric rvs**
 Geometric rv is a waiting time rv.
@@ -76,54 +75,55 @@ Geometric rv is a waiting time rv.
 $x=$ number of trails to get first \"s\" in the sequence of Bernoulli
 trials
 
-*Range:* $x=\{1,2,...\}$
+*Range:* $$x=\{1,2,...\}$$
 
-*Formulas: $X \sim Geo(p)$*
+*Formulas: $$X \sim Geo(p)$$*
 
--   $P(X=k)=p(1-p)^{k-1}, k=1,2,...$
+-   $$P(X=k)=p(1-p)^{k-1}, k=1,2,...$$
 
--   $E(X)=\frac{1}{p}$
+-   $$E(X)=\frac{1}{p}$$
 
--   $Var(X)=\frac{1-p}{p^2}$
+-   $$Var(X)=\frac{1-p}{p^2}$$
 
--   $pgf=\frac{ps}{1-(1-p)s}$
+-   $$pgf=\frac{ps}{1-(1-p)s}$$
 
 *Property: no-memory property*
 
 $$P(x>n+m|x>m)=P(x>n)=P(\underbrace{x-m}_{Remaining\> Time}>n\> |\underbrace{x>m}_{at\> time\> m,\> we\> do\> not\> observe\> "s"})$$
-the property tells us given that we do not observe the event \"s\", the remaining time $\sim Geo(p)$
+
+the property tells us given that we do not observe the event \"s\", the remaining time $$\sim Geo(p)$$
 
 Indicator rv
 ------------
 
 **Definition**
 
-or a given event $A$, we define $I_A=
+or a given event $$A$$, we define $$I_A=
         \begin{cases}
             1 \hspace{2ex}*\text{if A occurs} \\
             0 \hspace{2ex}*\text{otherwise}
-        \end{cases}$\
+        \end{cases}$$
 **Properties**
 
-1.  $E(I_A)=P(I_A=1)=P(A)=p$
+1.  $$E(I_A)=P(I_A=1)=P(A)=p$$
 
-2.  $Var(I_A)=P(I_A=1)P(I_A=0)=pq$
+2.  $$Var(I_A)=P(I_A=1)P(I_A=0)=pq$$
 
-3.  $E(I^2)=E(I)$
+3.  $$E(I^2)=E(I)$$
 
 Useful Relationships
 --------------------
 
--   $P(E \cap F)=P(F|E)P(E)$
+-   $$P(E \cap F)=P(F|E)P(E)$$
 
--   $Var(X)=E(X^2)-[E(X)]^2$
+-   $$Var(X)=E(X^2)-[E(X)]^2$$
 
--   $Cov(X,Y)=E(XY)-E(X)E(Y)$
-    If $X$ and $Y$ are independent, then $Cov(X,Y)=0$ or
-    $E(XY)=E(X)E(Y)$
+-   $$Cov(X,Y)=E(XY)-E(X)E(Y)$$
+    If $$X$$ and $$Y$$ are independent, then $$Cov(X,Y)=0$$ or
+    $$E(XY)=E(X)E(Y)$$
 
--   $Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)$
-    If $X$ and $Y$ are independent, then $Var(X+Y)=Var(X)+Var(Y)$
+-   $$Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)$$
+    If $$X$$ and $$Y$$ are independent, then $$Var(X+Y)=Var(X)+Var(Y)$$
 
 Waiting Time RVs
 ================
@@ -131,26 +131,26 @@ Waiting Time RVs
 Classification of $T_E$
 -----------------------
 
-1.  If $P(T_E<\infty)<1 \Rightarrow T_E$ is improper
+1.  If $$P(T_E<\infty)<1 \Rightarrow T_E$$ is improper
 
-2.  If $P(T_E<\infty)=1 \Rightarrow T_E$ is proper
+2.  If $$P(T_E<\infty)=1 \Rightarrow T_E$$ is proper
 
-    1.  If $E(T_E)=\infty \Rightarrow T_E$ is null proper
+    1.  If $$E(T_E)=\infty \Rightarrow T_E$$ is null proper
 
-    2.  If $E(T_E)<\infty \Rightarrow T_E$ is short proper
+    2.  If $$E(T_E)<\infty \Rightarrow T_E$$ is short proper
 
 **Comments**
 
-1.  If $T_E$ is improper $\Rightarrow$ $E(T_E)=\infty$
+1.  If $$T_E$$ is improper $$\Rightarrow$$ $$E(T_E)=\infty$$
 
-2.  If $E(T_E)<\infty \Rightarrow T_E$ is short proper.
-    (We do not need to verify $P(T_E<\infty)=1$)
+2.  If $$E(T_E)<\infty \Rightarrow T_E$$ is short proper.
+    (We do not need to verify $$P(T_E<\infty)=1)$$
 
 Notes
 -----
 
-Denote $R$ as the remaining time for event $X$, then $R$ and $X$ follow
-the same distribution and we have $E(X)=E(R)$ and $E(X^2)=E(R^2)$
+Denote $$R$$ as the remaining time for event $$X$$, then $$R$$ and $$X$$ follow
+the same distribution and we have $$E(X)=E(R)$$ and $$E(X^2)=E(R^2)$$
 
 Conditional Expectation
 =======================
