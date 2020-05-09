@@ -18,9 +18,9 @@ Distributions
 
 2.  All trials are independent
 
-3.  Probability of "s\" ($P(s)$) on each trail are the same
+3.  Probability of "s\" ( \(P(s)\) ) on each trail are the same
 
-*Notation*: $p=P(success),\> q=1-p=P(failure)$\
+*Notation*: \(p=P(success),\> q=1-p=P(failure)\)\
 *Bernoulli Random Variables:* $\sim Bernoulli(p)$, $p$ is the
 probability of success\
 Let $I_i =
