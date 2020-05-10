@@ -3,8 +3,8 @@ layout: notes-page
 title: STAT333 Applied Probability - Notes Summary
 permalink: /stat333finalnotes/
 header-includes:
-	- \usepackage{blkarray}
-	- \usepackage{amsmath}
+- \usepackage{blkarray}
+- \usepackage{amsmath}
 ---
 
 -   [Introduction](#introduction)
