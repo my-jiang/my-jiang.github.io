@@ -326,8 +326,8 @@ Variance by Conditioning
 1.  By definition, 
 
 		$$\begin{aligned}
-            Var(X) &=& E(X^2)-[E(X)]^2 \\
-                 &=& E(X^2\|Y)-[E(X\|Y)]^2
+            Var(X) = E(X^2)-[E(X)]^2 \\
+                 = E(X^2\|Y)-[E(X\|Y)]^2
         \end{aligned}$$
 
 2.  Conditional Variance Formula $$Var(X\|Y=y)=E(X^2\|Y=y)-[E(X\|Y=y)]^2$$
@@ -368,7 +368,9 @@ $$A(s)=a_0 + a_1s+a_2s^2+...=\sum_{n=0}^\infty a_ns^n$$
 
 	$$C(s)=A(s)\pm B(s)=\sum_{n=0}^\infty (a_n\pm b_n)s^n$$
 	
-    $$c_n=a_n\pm b_n$$ $$R(C)=min(R(A),R(B))$$
+    $$c_n=a_n\pm b_n$$ 
+    
+    $$R(C)=\min(R(A),R(B))$$
 
 2.  Product 
 
@@ -378,7 +380,7 @@ $$A(s)=a_0 + a_1s+a_2s^2+...=\sum_{n=0}^\infty a_ns^n$$
     
     $$c_n=\underbrace{\sum_{k=0}^n a_kb_{n-k}}_{\text{n+1 terms}}$$
     
-    $$R(c)=min(R(A),R(b))$$
+    $$R(c)=\min(R(A),R(b))$$
 
 Probability Generating Function
 -------------------------------
@@ -472,8 +474,8 @@ is called a simple(ordinary) random walk
 -   $\lambda_{0,k}$: the event that visiting to k, given the process
     starting with 0
 
--   $T_{0,k}$: waiting time for observing the first $\lambda_{0,k}$\
-    $=min\{n\geq 1, X_n=k\|X_0=0\}$
+-   $T_{0,k}$: waiting time for observing the first $\lambda_{0,k}$, 
+    $=\min\{n\geq 1, X_n=k\|X_0=0\}$
 
 -   $G_{0,0}(s)=\sum_{n=0}^\infty P(T_{0,0}=n)s^n$
 
@@ -485,7 +487,7 @@ is called a simple(ordinary) random walk
                     T_{0,k} &= T_{0,1}+T{1,2}+ \cdots + T_{k-1,k} \\
                         &= \sum_{i=1}^k T_{i-1,i}\\
                     T_{i,j} &= \text{waiting time for visiting $j$, starting from $i$}\\
-                    &= min\{n\geq 1, X_n = j\| X_0=i \}
+                    &= \min\{n\geq 1, X_n = j\| X_0=i \}
                 \end{aligned}$$ 
 $$G_{0,k}(s)=[G_{0,1}(s)]^k$$ for $k>0$
 
@@ -595,14 +597,18 @@ Chapman-Kolmogorov Equations
 
 ### n-step Transition Probs and Matrix
 
-**Notations.** $$P_{ij}^{(n)}=P(X_n=j\|X_0=i)=P(X_{n+m}=j\|X_m=i)$$
+**Notations.** 
+
+$$P_{ij}^{(n)}=P(X_n=j\|X_0=i)=P(X_{n+m}=j\|X_m=i)$$
+
 $$\underline{\underline{P}}^{(n)}=(p_{ij}^{(n)})_{i\in S, j \in S} \text{ and } \underline{\underline{P}}^{(1)}=\underline{\underline{P}}$$
+
 $$\begin{aligned}
-    \pi_i^{(0)} &=& P(X_0=i), i \in S \\
-    \pi_j^{(n)} &=& P(X_n=j), j \in S \\
-    \underline{\underline{\pi}}^{(0)} &=& (\pi_i^{(0)})=(P(X_0=i))_{i \in S} \\
+    \pi_i^{(0)} = P(X_0=i), i \in S \\
+    \pi_j^{(n)} = P(X_n=j), j \in S \\
+    \underline{\underline{\pi}}^{(0)} = (\pi_i^{(0)})=(P(X_0=i))_{i \in S} \\
         && \Rightarrow \text{ row vector/distribution of $X_0$} \\
-    \underline{\underline{\pi}}^{(n)} &=& (\pi_j^{(0)})=(P(X_n=j))_{j \in S} \\
+    \underline{\underline{\pi}}^{(n)} = (\pi_j^{(0)})=(P(X_n=j))_{j \in S} \\
         && \Rightarrow \text{ row vector/distribution of $X_n$} \end{aligned}$$
 **CK-Equations**
 
@@ -626,7 +632,7 @@ Classification of States
 1.  $\lambda_{i,i}=$ returning state $i$, given $X_0=i$
 
 2.  $T_{i,i}=$ waiting time to observe first $\lambda_{i,i}$ =
-    $min\{n\geq 1, X_n=i\|X_0=i \}$
+    $\min\{n\geq 1, X_n=i\|X_0=i \}$
 
 ### Classification by $T_{i,i}$
 
@@ -778,7 +784,7 @@ $\lambda$ if
 
    1.  $X_1(t) \sim Pois(\lambda pt)$
 
-   2.  $X)_2(t) \sim Pois(\lambda qt)$
+   2.  $X_2(t) \sim Pois(\lambda qt)$
 
    3.  $X_1(t)$ and $X_2(t)$ are independent
 
@@ -810,9 +816,9 @@ Calculating $L_i$ and $E_{ij}$
 ------------------------------
 
 $$\begin{aligned}
-    L_i &=& \text{waiting time for process to stay in state $i$ before jumping to other states}  \\
-        &=& min\{t\geq 0, X(t)\neq i \| X(0)=i\} \\
-    E_{ij} &=& P(\text{jump to state $i$ $\|$ process leaves state $i$})\end{aligned}$$
+    L_i = \text{waiting time for process to stay in state $i$ before jumping to other states}  \\
+        = \min\{t\geq 0, X(t)\neq i \| X(0)=i\} \\
+    E_{ij} = P(\text{jump to state $i$ $\|$ process leaves state $i$})\end{aligned}$$
 Note $E_{ii} = 0$
 
 1.  $L_i \sim exp(-r_{ii})$
@@ -836,7 +842,7 @@ process if
     $$L_{Di} = \text{ waiting time for a death} \sim exp(\underbrace{\mu_i}_{\text{death rate}})$$
 
 Also, $\mu_0 = 0$ and
-$L_i=min(L_{Bi},L_{Di}) \sim exp(\lambda_i + \mu_i)$
+$L_i=\min(L_{Bi},L_{Di}) \sim exp(\lambda_i + \mu_i)$
 
 ### Generator Matrix in Birth-Death Process
 
