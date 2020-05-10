@@ -89,7 +89,7 @@ trials
 
 *Formulas: $X \sim Bin(n,p)$*
 
--   $P(X=k)={n \choose k} P^k (1-p)^n-k,\> k=0,1,...,n$
+-   $P(X=k)={n \choose k} p^k (1-p)^{n-k}, \hspace{1ex} k=0,1,...,n$
 
 -   $E(X)=np$
 
@@ -127,7 +127,7 @@ trials
 
 *Property: no-memory property*
 
-$$P(x>n+m\|x>m)=P(x>n)=P(\underbrace{x-m}_{Remaining\> Time}>n\> \|\underbrace{x>m}_{at\> time\> m,\> we\> do\> not\> observe\> "s"})$$
+$$P(x>n+m|x>m)=P(x>n)=P(\underbrace{x-m}_{Remaining\> Time}>n\> |\underbrace{x>m}_{at\> time\> m,\> we\> do\> not\> observe\> "s"})$$
 
 The property tells us given that we do not observe the event \"s\", the remaining time $\sim Geo(p)$
 
@@ -153,7 +153,7 @@ For a given event $A$, we define $I_A=
 Useful Relationships
 --------------------
 
-- $P(E \cap F)=P(F\|E)P(E)$
+- $P(E \cap F)=P(F|E)P(E)$
 
 - $Var(X)=E(X^2)-[E(X)]^2$
 
@@ -204,14 +204,14 @@ Joint RVs
 
 -   $$f_{X}(x)=
             \begin{cases}
-                \sum_{y} f_{X\|Y}(x\|y) \hspace{2ex} &\text{Discrete RV} \\
-                \int_{-\infty}^{\infty} f_{X\|Y}(x\|y)dy \hspace{2ex} &\text{Continuous RV}
+                \sum_{y} f_{X|Y}(x|y) \hspace{2ex} &\text{Discrete RV} \\
+                \int_{-\infty}^{\infty} f_{X|Y}(x|y)dy \hspace{2ex} &\text{Continuous RV}
             \end{cases}$$
 
 -   $$f_{Y}(y)=
             \begin{cases}
-                \sum_{x} f_{X\|Y}(x\|y) \hspace{2ex} &\text{Discrete RV} \\
-                \int_{-\infty}^{\infty} f_{X\|Y}(x\|y)dx \hspace{2ex} &\text{Continuous RV}
+                \sum_{x} f_{X|Y}(x|y) \hspace{2ex} &\text{Discrete RV} \\
+                \int_{-\infty}^{\infty} f_{X|Y}(x|y)dx \hspace{2ex} &\text{Continuous RV}
             \end{cases}$$
 
 **Property**
@@ -226,21 +226,21 @@ Conditional Expectation
 **Conditional Distribution**
 
 or a given $y$, the conditional pmf/pdf for $X$ given $Y=y$ is
-$$f_{X\|Y}(x\|y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}, f_Y(y)>0$$
+$$f_{X|Y}(x|y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}, f_Y(y)>0$$
 
 **Conditional Expectation**
 
--   The conditional expectation of $x$ given $Y=y$ is $$E(X\|Y=y)=
+-   The conditional expectation of $x$ given $Y=y$ is $$E(X|Y=y)=
             \begin{cases}
-                \sum_{x} x\times f_{X\|Y}(x\|y) \hspace{2ex} &\text{Discrete RV} \\
-                \int_{-\infty}^{\infty} x\times f_{X\|Y}(x\|y)dx \hspace{2ex} &\text{Continuous RV}
+                \sum_{x} x\times f_{X|Y}(x|y) \hspace{2ex} &\text{Discrete RV} \\
+                \int_{-\infty}^{\infty} x\times f_{X|Y}(x|y)dx \hspace{2ex} &\text{Continuous RV}
             \end{cases}$$
 
 -   The conditional expectation of $g(x)$ given $Y=y$ is
-    $$E[g(x)\|Y=y]=       
+    $$E[g(x)|Y=y]=       
             \begin{cases}
-                \sum_{x} g(x)\times f_{X\|Y}(x\|y) \hspace{2ex} &\text{Discrete RV} \\
-                \int_{-\infty}^{\infty} g(x)\times f_{X\|Y}(x\|y)dx \hspace{2ex} &\text{Continuous RV}
+                \sum_{x} g(x)\times f_{X|Y}(x|y) \hspace{2ex} &\text{Discrete RV} \\
+                \int_{-\infty}^{\infty} g(x)\times f_{X|Y}(x|y)dx \hspace{2ex} &\text{Continuous RV}
             \end{cases}$$
 
 **Properties**
@@ -249,76 +249,76 @@ $$f_{X\|Y}(x\|y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}, f_Y(y)>0$$
 
 2. Substitution Rule
 
-$$E[x\times \underbrace{g(Y)}_{random \> variable}\|Y=y]=E(x\times \underbrace{g(y)}_{constant}\|Y=y)=g(y)E(X\|Y=y)$$
+$$E[x\times \underbrace{g(Y)}_{random \> variable}|Y=y]=E(x\times \underbrace{g(y)}_{constant}|Y=y)=g(y)E(X|Y=y)$$
 
    In general:
 
-$$E[\underbrace{h(X,Y)}_{function\> of X\&Y}\|Y=y]=E[\underbrace{h(X,y)}_{function\> of X only}\|Y=y]$$
+$$E[\underbrace{h(X,Y)}_{function\> of X\&Y}|Y=y]=E[\underbrace{h(X,y)}_{function\> of X only}|Y=y]$$
 
 3. Independence Property
 
-   If $X\&Y$ are independent then $$f_{X\|Y}(x,y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}=f_X(x) \Rightarrow E(X\|Y=y)=E(x) \> and\> E[g(x)\|Y=y]=E[g(x)]$$
+   If $X\&Y$ are independent then $$f_{X|Y}(x,y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}=f_X(x) \Rightarrow E(X|Y=y)=E(x) \> and\> E[g(x)|Y=y]=E[g(x)]$$
 
 Expectation by Conditioning
 ---------------------------
 
 **Double Expectation Theorem** 
 
-$$E(X)=E[E(X \|Y)]$$
+$$E(X)=E[E(X |Y)]$$
 
-1.  What is $E(X \|Y)$
+1.  What is $E(X |Y)$
 
-    1.  $E(X \|Y)$ is a random variable; and depends on $Y$
+    1.  $E(X |Y)$ is a random variable; and depends on $Y$
 
-    2.  given $Y=y$, the function of $g(Y)$: $g(y)=E(X \|Y=y)$
+    2.  given $Y=y$, the function of $g(Y)$: $g(y)=E(X |Y=y)$
 
-2.  How to get $E(X \|Y=y)$
+2.  How to get $E(X |Y=y)$
 
-    1.  Figure out $g(y)=E(X \|Y=y)$, by definition or properties
+    1.  Figure out $g(y)=E(X |Y=y)$, by definition or properties
 
-    2.  $E(X \|Y)=g(Y)$
+    2.  $E(X |Y)=g(Y)$
 
-3.  How to apply $E(X)=E[E(X \|Y)]$ 
+3.  How to apply $E(X)=E[E(X |Y)]$ 
 	
 
-$$E(X)=E[E(X\|Y)]=E[g(Y)]$$
+$$E(X)=E[E(X|Y)]=E[g(Y)]$$
 	
 $$= \begin{cases}
                     \sum_{y}g{y}\times f_Y(y)\\
                     \int_{-\infty}^\infty g{y}\times f_Y(y)dy
                 \end{cases}\\
              = \begin{cases}
-                    \sum_{y}E(X\|Y=y)\times f_Y(y) \hspace{2ex} &\text{discrete case} \\
-                    \int_{-\infty}^\infty E(X\|Y=y)\times f_Y(y)dy \hspace{2ex} &\text{continuous case}
+                    \sum_{y}E(X|Y=y)\times f_Y(y) \hspace{2ex} &\text{discrete case} \\
+                    \int_{-\infty}^\infty E(X|Y=y)\times f_Y(y)dy \hspace{2ex} &\text{continuous case}
                 \end{cases}$$
 
 Probability by Conditioning
 ---------------------------
 
 $$P(A)=\begin{cases}
-        \sum_yP(A\|Y=y)f_Y(y) \hspace{2ex} &\text{discrete Y} \\
-        \int_{-\infty}^{\infty} P(A\|Y=y)f_Y(y)dy \hspace{2ex} &\text{continuous Y}
+        \sum_yP(A|Y=y)f_Y(y) \hspace{2ex} &\text{discrete Y} \\
+        \int_{-\infty}^{\infty} P(A|Y=y)f_Y(y)dy \hspace{2ex} &\text{continuous Y}
     \end{cases}$$
 
 Variance by Conditioning
 ------------------------
 
 1.  By definition, 
-$$Var(X) = E(X^2)-[E(X)]^2 = E(X^2\|Y)-[E(X\|Y)]^2 $$
+$$Var(X) = E(X^2)-[E(X)]^2 = E(X^2|Y)-[E(X|Y)]^2 $$
 
-2.  Conditional Variance Formula $$Var(X\|Y=y)=E(X^2\|Y=y)-[E(X\|Y=y)]^2$$
+2.  Conditional Variance Formula $$Var(X|Y=y)=E(X^2|Y=y)-[E(X|Y=y)]^2$$
 
-### Finding $Var(X\|Y)$
+### Finding $Var(X|Y)$
 
 **Two Steps**
 
-1.  Find $h(y)=Var(X\|Y=y)$
+1.  Find $h(y)=Var(X|Y=y)$
 
-2.  Apply $h(y)$ to $Y$ get $Var(X\|Y)=h(Y)$
+2.  Apply $h(y)$ to $Y$ get $Var(X|Y)=h(Y)$
 
-If $X$ and $Y$ are independent, $Var(X\|Y=y)=Var(X)$
+If $X$ and $Y$ are independent, $Var(X|Y=y)=Var(X)$
 
-$$Var(X)=E[Var(X\|Y)]+Var[E(X\|Y)]$$
+$$Var(X)=E[Var(X|Y)]+Var[E(X|Y)]$$
 
 ### Finding Expectation and Variance for Compound Random Variable
 
@@ -453,7 +453,7 @@ is called a simple(ordinary) random walk
     starting with 0
 
 -   $T_{0,k}$: waiting time for observing the first $\lambda_{0,k}$, 
-    $=\min\{n\geq 1, X_n=k\|X_0=0\}$
+    $=\min\{n\geq 1, X_n=k|X_0=0\}$
 
 -   $G_{0,0}(s)=\sum_{n=0}^\infty P(T_{0,0}=n)s^n$
 
@@ -465,7 +465,7 @@ is called a simple(ordinary) random walk
                     T_{0,k} &= T_{0,1}+T{1,2}+ \cdots + T_{k-1,k} \\
                         &= \sum_{i=1}^k T_{i-1,i}\\
                     T_{i,j} &= \text{waiting time for visiting $j$, starting from $i$}\\
-                    &= \min\{n\geq 1, X_n = j\| X_0=i \}
+                    &= \min\{n\geq 1, X_n = j| X_0=i \}
                 \end{aligned}$$ 
 $$G_{0,k}(s)=[G_{0,1}(s)]^k$$ for $k>0$
 
@@ -485,7 +485,7 @@ $$G_{0,k}(s)=\sum_{n=0}^\infty P(T_{0,k})s^n$$
 
 5.  For $k<0$
     
-    $$G_{0,k}(s)=[G_{0,-1}(s)]^{\|k\|}=[\frac{1-\sqrt{1-4pqs^2}}{2ps}]^{\|k\|}$$
+    $$G_{0,k}(s)=[G_{0,-1}(s)]^{|k|}=[\frac{1-\sqrt{1-4pqs^2}}{2ps}]^{|k|}$$
 
 ### Classify $T_{0,k}$
 
@@ -503,13 +503,13 @@ $$E(T_{0,k})=G_{0,k}'(1)$$ For $\lambda_{0,k}, k>0$
 
 For $\lambda_{0,k}, k<0$
 
-1.  $P(T_{0,k}<\infty)=1$ and $E(T_{0,k})=\frac{\|k\|}{p-q}$ if $p>q$
+1.  $P(T_{0,k}<\infty)=1$ and $E(T_{0,k})=\frac{|k|}{p-q}$ if $p>q$
     (short proper)
 
 2.  $P(T_{0,k}<\infty)=1$ and $E(T_{0,k})=\infty$ if $p=q=\frac{1}{2}$
     (null proper)
 
-3.  $P(T_{0,k}<\infty)=(\frac{q}{p})^\|k\|<1$ and $E(T_{0,k})=\infty$ if
+3.  $P(T_{0,k}<\infty)=(\frac{q}{p})^|k|<1$ and $E(T_{0,k})=\infty$ if
     $p<q$ (improper)
 
 Discrete Markov Process
@@ -534,7 +534,7 @@ chain) if
 
 1.  state space $S$ is discrete or countable
 
-2.  $P(X_{n+1}=j\|X_n = i,X_{n-1}=i_{n-1},...,X_1=i_1,X_0=i_0) = P(X_{n+1}=j\|X_n=i)=P(X_1=j\|X_0 =i)$,
+2.  $P(X_{n+1}=j|X_n = i,X_{n-1}=i_{n-1},...,X_1=i_1,X_0=i_0) = P(X_{n+1}=j|X_n=i)=P(X_1=j|X_0 =i)$,
     denoted by $p_{ij}$
 
 Property
@@ -552,7 +552,7 @@ One-Step Transition Probs and Matrix
 ------------------------------------
 
 Let
-$$p_{\underbrace{i}_{\text{current state}}\underbrace{j}_{\text{future state}}}=P(X_1=j\|X_0=i)=P(X_{n+1}=j\|X_n=i)$$
+$$p_{\underbrace{i}_{\text{current state}}\underbrace{j}_{\text{future state}}}=P(X_1=j|X_0=i)=P(X_{n+1}=j|X_n=i)$$
 called **one-step transition prob from state $i$ to state $j$**
 
 $$\underline{\underline{P}}=
@@ -577,7 +577,7 @@ Chapman-Kolmogorov Equations
 
 **Notations.** 
 
-- $$P_{ij}^{(n)}=P(X_n=j\|X_0=i)=P(X_{n+m}=j\|X_m=i)$$
+- $$P_{ij}^{(n)}=P(X_n=j|X_0=i)=P(X_{n+m}=j|X_m=i)$$
 
 - $$\underline{\underline{P}}^{(n)}=(p_{ij}^{(n)})_{i\in S, j \in S} \text{ and } \underline{\underline{P}}^{(1)}=\underline{\underline{P}}$$
 
@@ -616,7 +616,7 @@ Classification of States
 1.  $\lambda_{i,i}=$ returning state $i$, given $X_0=i$
 
 2.  $T_{i,i}=$ waiting time to observe first $\lambda_{i,i}$ =
-    $\min\{n\geq 1, X_n=i\|X_0=i \}$
+    $\min\{n\geq 1, X_n=i|X_0=i \}$
 
 ### Classification by $T_{i,i}$
 
@@ -639,7 +639,7 @@ of times
 ### Period of State
 
 Period of state $i$ is defined as
-$d=gcd\{n\|p_{ii}^{(n)}>0\; \& \; n\geq 1\}$
+$d=gcd\{n|p_{ii}^{(n)}>0\; \& \; n\geq 1\}$
 
 1.  If $d=1$, state $i$ is called aperiodic\
     $p_{ii}^{(n)}>0$ for all $n\geq 1$ or\
@@ -716,7 +716,7 @@ Exponential Process
 
 3.  $$E(x)=\frac{1}{\lambda} \text{ and } Var(x)=\frac{1}{\lambda^2}$$
 
-4.  No-memory Property $$P(X>t+s\|x>s)=P(X>t)$$
+4.  No-memory Property $$P(X>t+s|x>s)=P(X>t)$$
 
 5.  Alarm clock lemma\
     If $X_i \sim exp(\lambda_i),\; i=1,...,n$ & $X_1,...,X_n$ are
@@ -751,7 +751,7 @@ $\lambda$ if
 2. $T_1,...,T_i \sim exp(\lambda)$, $T_i$ is waiting time for the i-th
    event
 
-3. Suppose $0<s<t$, then $X(s)\|X(t)=n \sim Bin(n,\frac{s}{t})$
+3. Suppose $0<s<t$, then $X(s)|X(t)=n \sim Bin(n,\frac{s}{t})$
 
 4. Suppose $X(t)=$ number of events in $(0,t]$ and follows Poisson
    Process with rate $\lambda$, further events can be classified into 2
@@ -801,13 +801,13 @@ Calculating $L_i$ and $E_{ij}$
 
 $$\begin{aligned}
     L_i = \text{waiting time for process to stay in state $i$ before jumping to other states}  \\
-        = \min\{t\geq 0, X(t)\neq i \| X(0)=i\} \\
-    E_{ij} = P(\text{jump to state $i$ $\|$ process leaves state $i$})\end{aligned}$$
+        = \min\{t\geq 0, X(t)\neq i | X(0)=i\} \\
+    E_{ij} = P(\text{jump to state $i$ $|$ process leaves state $i$})\end{aligned}$$
 Note $E_{ii} = 0$
 
 1.  $L_i \sim exp(-r_{ii})$
 
-2.  $E_{ij}=\frac{r_{ij}}{-r_{ii}} = \frac{r_{ij}}{\|r_{ii}\|}$ for
+2.  $E_{ij}=\frac{r_{ij}}{-r_{ii}} = \frac{r_{ij}}{|r_{ii}|}$ for
     $i\neq j$
 
 Birth-Death Process
@@ -833,7 +833,7 @@ $L_i=\min(L_{Bi},L_{Di}) \sim exp(\lambda_i + \mu_i)$
 $$r_{ii} = -(\lambda_i + \mu_i)$$
 $$E_{i,i+1}=\frac{\lambda_i}{\lambda_i+\mu_i}$$
 $$E_{i,i-1}=\frac{\mu_i}{\lambda_i+\mu_i}$$
-$$E_{i,j}=0 \text{ for } \|i-j\|\geq 2$$ $$\underline{\underline{R}}=
+$$E_{i,j}=0 \text{ for } |i-j|\geq 2$$ $$\underline{\underline{R}}=
 \begin{blockarray}{cccccc}
 & 0 & 1 & 2 & 3 & \cdots \\
 \begin{block}{c(ccccc)}
