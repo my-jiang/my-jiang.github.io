@@ -599,17 +599,15 @@ Chapman-Kolmogorov Equations
 
 **Notations.** 
 
-$$P_{ij}^{(n)}=P(X_n=j\|X_0=i)=P(X_{n+m}=j\|X_m=i)$$
+- $$P_{ij}^{(n)}=P(X_n=j\|X_0=i)=P(X_{n+m}=j\|X_m=i)$$
 
-$$\underline{\underline{P}}^{(n)}=(p_{ij}^{(n)})_{i\in S, j \in S} \text{ and } \underline{\underline{P}}^{(1)}=\underline{\underline{P}}$$
+- $$\underline{\underline{P}}^{(n)}=(p_{ij}^{(n)})_{i\in S, j \in S} \text{ and } \underline{\underline{P}}^{(1)}=\underline{\underline{P}}$$
 
-$$\begin{aligned}
+- $$\begin{aligned}
     \pi_i^{(0)} = P(X_0=i), i \in S \\
     \pi_j^{(n)} = P(X_n=j), j \in S \\
-    \underline{\underline{\pi}}^{(0)} = (\pi_i^{(0)})=(P(X_0=i))_{i \in S} \\
-        && \Rightarrow \text{ row vector/distribution of $X_0$} \\
-    \underline{\underline{\pi}}^{(n)} = (\pi_j^{(0)})=(P(X_n=j))_{j \in S} \\
-        && \Rightarrow \text{ row vector/distribution of $X_n$} \end{aligned}$$
+    \underline{\underline{\pi}}^{(0)} = (\pi_i^{(0)})=(P(X_0=i))_{i \in S} \Rightarrow \text{ row vector/distribution of $X_0$} \\
+    \underline{\underline{\pi}}^{(n)} = (\pi_j^{(0)})=(P(X_n=j))_{j \in S}  \Rightarrow \text{ row vector/distribution of $X_n$} \end{aligned}$$
 
 **CK-Equations**
 
