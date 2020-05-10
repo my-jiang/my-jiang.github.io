@@ -20,40 +20,18 @@ header-includes:
     -   [Expectation by Conditioning](#expectation-by-conditioning)
     -   [Probability by Conditioning](#probability-by-conditioning)
     -   [Variance by Conditioning](#variance-by-conditioning)
-        -   [Finding $Var(X\|Y)$](#finding-varxy)
-        -   [Finding Expectation and Variance for Compound Random
-            Variable](#finding-expectation-and-variance-for-compound-random-variable)
 -   [Probability Generating Function](#probability-generating-function)
     -   [Generating Function](#generating-function)
-        -   [Properties of Generating
-            Function](#properties-of-generating-function)
     -   [Probability Generating
         Function](#probability-generating-function-1)
-        -   [Properties of PGF](#properties-of-pgf)
-        -   [pgf of distributions](#pgf-of-distributions)
     -   [Simple Random Walk](#simple-random-walk)
-        -   [Notations](#notations)
-        -   [Properties for $T_{0,k}$](#properties-for-t_0k)
-        -   [Properties for $G_{0,k}(s)$](#properties-for-g_0ks)
-        -   [Classify $T_{0,k}$](#classify-t_0k)
 -   [Discrete Markov Process](#discrete-markov-process)
     -   [Definition and Notations](#definition-and-notations)
     -   [Property](#property)
     -   [One-Step Transition Probs and
         Matrix](#one-step-transition-probs-and-matrix)
     -   [Chapman-Kolmogorov Equations](#chapman-kolmogorov-equations)
-        -   [n-step Transition Probs and
-            Matrix](#n-step-transition-probs-and-matrix)
     -   [Classification of States](#classification-of-states)
-        -   [Classification by $T_{i,i}$](#classification-by-t_ii)
-        -   [Classification by
-            $\lambda_{i,i}$](#classification-by-lambda_ii)
-        -   [Period of State](#period-of-state)
-        -   [Methods to Classify State $i$ Based on
-            $\underline{\underline{P}}$](#methods-to-classify-state-i-based-on-underlineunderlinep)
-        -   [Theorems about Class](#theorems-about-class)
-        -   [Stationary Distribution](#stationary-distribution)
-        -   [Positive Recurrent States](#positive-recurrent-states)
 -   [Poisson Process](#poisson-process)
     -   [Exponential Process](#exponential-process)
     -   [Poisson Process](#poisson-process-1)
@@ -62,9 +40,6 @@ header-includes:
     -   [Stationary Distribution](#stationary-distribution-1)
     -   [Calculating $L_i$ and $E_{ij}$](#calculating-l_i-and-e_ij)
     -   [Birth-Death Process](#birth-death-process)
-        -   [Generator Matrix in Birth-Death
-            Process](#generator-matrix-in-birth-death-process)
-        -   [Stationary Distribution](#stationary-distribution-2)
 
 Introduction
 ============
@@ -91,7 +66,7 @@ Let
 
 $$I_i =
         \begin{cases}
-            1 \hspace{2ex}{\text{if ``s" appears on the $i^{th}$ trail}} \\
+            1 \hspace{2ex}{\text{if s appears on the $i^{th}$ trail}} \\
             0 \hspace{2ex}{\text{otherwise}}
         \end{cases}$$
 
