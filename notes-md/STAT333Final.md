@@ -101,7 +101,7 @@ trials
 
 1.  $x=\sum_{i=1}^nI_i$
 
-2.  If $x_1 \sim Bin(n_1,p) \> x_2 \sim Bin(n_2,p)$, and $x_1,x_2$ are
+2.  If $x_1 \sim Bin(n_1,p), x_2 \sim Bin(n_2,p)$, and $x_1,x_2$ are
     independent, then $x_1+x_2 \sim Bin(n_1+n_2,p)$
 
 **Geometric rvs**
@@ -127,7 +127,7 @@ trials
 
 *Property: no-memory property*
 
-$$P(x>n+m|x>m)=P(x>n)=P(\underbrace{x-m}_{Remaining\> Time}>n\> |\underbrace{x>m}_{at\> time\> m,\> we\> do\> not\> observe\> "s"})$$
+$$P(x>n+m|x>m)=P(x>n)=P(\underbrace{x-m}_{Remaining\> Time}>n\>|\underbrace{x>m}_{at\> time\> m,\> we\> do\> not\> observe\> "s"})$$
 
 The property tells us given that we do not observe the event \"s\", the remaining time $\sim Geo(p)$
 
@@ -257,29 +257,32 @@ $$E[\underbrace{h(X,Y)}_{function\> of X\&Y}|Y=y]=E[\underbrace{h(X,y)}_{functio
 
 3. Independence Property
 
-   If $X\&Y$ are independent then $$f_{X|Y}(x,y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}=f_X(x) \Rightarrow E(X|Y=y)=E(x) \> and\> E[g(x)|Y=y]=E[g(x)]$$
+   If $X$ & $Y$ are independent then
+   
+   $$f_{X|Y}(x,y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}=f_X(x) \Rightarrow E(X|Y=y)=E(x)$$ and $$E[g(x)|Y=y]=E[g(x)]$$
+   
+   
 
 Expectation by Conditioning
 ---------------------------
 
 **Double Expectation Theorem** 
 
-$$E(X)=E[E(X |Y)]$$
+$$E(X)=E[E(X|Y)]$$
 
-1.  What is $E(X |Y)$
+1.  What is $E(X|Y)$
 
-    1.  $E(X |Y)$ is a random variable; and depends on $Y$
+    1.  $E(X|Y)$ is a random variable; and depends on $Y$
 
-    2.  given $Y=y$, the function of $g(Y)$: $g(y)=E(X |Y=y)$
+    2.  given $Y=y$, the function of $g(Y)$: $g(y)=E(X|Y=y)$
 
-2.  How to get $E(X |Y=y)$
+2.  How to get $E(X|Y=y)$
 
-    1.  Figure out $g(y)=E(X |Y=y)$, by definition or properties
+    1.  Figure out $g(y)=E(X|Y=y)$, by definition or properties
 
-    2.  $E(X |Y)=g(Y)$
+    2.  $E(X|Y)=g(Y)$
+3.  How to apply $E(X)=E[E(X|Y)]$ 
 
-3.  How to apply $E(X)=E[E(X |Y)]$ 
-	
 
 $$E(X)=E[E(X|Y)]=E[g(Y)]$$
 	
@@ -801,7 +804,7 @@ Calculating $L_i$ and $E_{ij}$
 
 $$\begin{aligned}
     L_i = \text{waiting time for process to stay in state $i$ before jumping to other states}  \\
-        = \min\{t\geq 0, X(t)\neq i | X(0)=i\} \\
+        = \min\{t\geq 0, X(t)\neq i| X(0)=i\} \\
     E_{ij} = P(\text{jump to state $i$ $|$ process leaves state $i$})\end{aligned}$$
 Note $E_{ii} = 0$
 
@@ -833,7 +836,7 @@ $L_i=\min(L_{Bi},L_{Di}) \sim exp(\lambda_i + \mu_i)$
 $$r_{ii} = -(\lambda_i + \mu_i)$$
 $$E_{i,i+1}=\frac{\lambda_i}{\lambda_i+\mu_i}$$
 $$E_{i,i-1}=\frac{\mu_i}{\lambda_i+\mu_i}$$
-$$E_{i,j}=0 \text{ for } |i-j|\geq 2$$ $$\underline{\underline{R}}=
+$$E_{i,j}=0 \text{ for }|i-j|\geq 2$$ $$\underline{\underline{R}}=
 \begin{blockarray}{cccccc}
 & 0 & 1 & 2 & 3 & \cdots \\
 \begin{block}{c(ccccc)}
