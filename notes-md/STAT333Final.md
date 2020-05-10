@@ -4,7 +4,7 @@ title: STAT333 Applied Probability - Notes Summary
 permalink: /stat333finalnotes/
 ---
 
-The PDF version of this notes can be found [here]((../notes-pdf/STAT333Final.pdf))
+The PDF version of this notes can be found [here](../notes-pdf/STAT333Final.pdf)
 
 -   [Introduction](#introduction)
     -   [Distributions](#distributions)
