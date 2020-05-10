@@ -2,10 +2,9 @@
 layout: notes-page
 title: STAT333 Applied Probability - Notes Summary
 permalink: /stat333finalnotes/
-header-includes:
-- \usepackage{blkarray}
-- \usepackage{amsmath}
 ---
+
+The PDF version of this notes can be found [here]((../notes-pdf/STAT333Final.pdf))
 
 -   [Introduction](#introduction)
     -   [Distributions](#distributions)
@@ -153,7 +152,7 @@ For a given event $A$, we define $I_A=
 Useful Relationships
 --------------------
 
-- $P(E \cap F)=P(F|E)P(E)$
+- $P(E \cap F)=P(F\|E)P(E)$
 
 - $Var(X)=E(X^2)-[E(X)]^2$
 
@@ -225,7 +224,8 @@ Conditional Expectation
 
 **Conditional Distribution**
 
-or a given $y$, the conditional pmf/pdf for $X$ given $Y=y$ is
+For a given $y$, the conditional pmf/pdf for $X$ given $Y=y$ is
+
 $$f_{X|Y}(x|y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}, f_Y(y)>0$$
 
 **Conditional Expectation**
@@ -270,18 +270,18 @@ Expectation by Conditioning
 
 $$E(X)=E[E(X|Y)]$$
 
-1.  What is $E(X|Y)$
+1.  What is $E(X\|Y)$
 
-    1.  $E(X|Y)$ is a random variable; and depends on $Y$
+    1.  $E(X\|Y)$ is a random variable; and depends on $Y$
 
-    2.  given $Y=y$, the function of $g(Y)$: $g(y)=E(X|Y=y)$
+    2.  given $Y=y$, the function of $g(Y)$: $g(y)=E(X\|Y=y)$
 
-2.  How to get $E(X|Y=y)$
+2.  How to get $E(X\|Y=y)$
 
-    1.  Figure out $g(y)=E(X|Y=y)$, by definition or properties
+    1.  Figure out $g(y)=E(X\|Y=y)$, by definition or properties
 
-    2.  $E(X|Y)=g(Y)$
-3.  How to apply $E(X)=E[E(X|Y)]$ 
+    2.  $E(X\|Y)=g(Y)$
+3.  How to apply $E(X)=E[E(X\|Y)]$ 
 
 
 $$E(X)=E[E(X|Y)]=E[g(Y)]$$
@@ -315,11 +315,11 @@ $$Var(X) = E(X^2)-[E(X)]^2 = E(X^2|Y)-[E(X|Y)]^2 $$
 
 **Two Steps**
 
-1.  Find $h(y)=Var(X|Y=y)$
+1.  Find $h(y)=Var(X\|Y=y)$
 
-2.  Apply $h(y)$ to $Y$ get $Var(X|Y)=h(Y)$
+2.  Apply $h(y)$ to $Y$ get $Var(X\|Y)=h(Y)$
 
-If $X$ and $Y$ are independent, $Var(X|Y=y)=Var(X)$
+If $X$ and $Y$ are independent, $Var(X\|Y=y)=Var(X)$
 
 $$Var(X)=E[Var(X|Y)]+Var[E(X|Y)]$$
 
@@ -366,8 +366,11 @@ $$A(s)=a_0 + a_1s+a_2s^2+...=\sum_{n=0}^\infty a_ns^n$$
 Probability Generating Function
 -------------------------------
 
-$$G_X(s)=\sum_{n=0}^\infty p_ns^n=\sum_{n=0}^\infty P(X=n)s^n$$ If $x$
-is a proper random variable, then $\begin{cases}
+$$G_X(s)=\sum_{n=0}^\infty p_ns^n=\sum_{n=0}^\infty P(X=n)s^n$$ 
+
+
+
+If $x$ is a proper random variable, then $\begin{cases}
 P(x=\infty)=0 \\
 P(x < \infty)=1
 \end{cases}$, then $$G_X(s)=\sum_{n=0}^\infty P(X=n) s^n=E[s^X]$$
@@ -543,19 +546,23 @@ chain) if
 Property
 --------
 
-1.  **Markov Property**\
+1.  **Markov Property**
+    
     Given the current information ($X_n$), the future ($X_{n+1}$) does
-    not depend on the history ($X_{n-1},X_{n-2},...,X_0$)
+not depend on the history ($X_{n-1},X_{n-2},...,X_0$)
+    
+2. **Time Homogeneous Property**
 
-2.  **Time Homogeneous Property**\
-    Conditional probs so not depend on starting time, they only depend
-    on step size
+   Conditional probs so not depend on starting time, they only depend
+   on step size
 
 One-Step Transition Probs and Matrix
 ------------------------------------
 
 Let
+
 $$p_{\underbrace{i}_{\text{current state}}\underbrace{j}_{\text{future state}}}=P(X_1=j|X_0=i)=P(X_{n+1}=j|X_n=i)$$
+
 called **one-step transition prob from state $i$ to state $j$**
 
 $$\underline{\underline{P}}=
@@ -566,12 +573,17 @@ $$\underline{\underline{P}}=
 \text{current} & \vdots & p_{ij} & \vdots \\
 \text{state} & \cdots & \cdots & \cdots \\
 \end{block}
-\end{blockarray}$$ $i\in S,j\in S$\
+\end{blockarray}$$ 
+
+$i\in S,j\in S$
+
+
+
 **Property**
 
 1.  $p_{ij}\geq 0$
 
-2.  $\sum_{j\in S} p_{ij}=1$, sum of each row = 1
+2. $\sum_{j\in S} p_{ij}=1$, sum of each row = 1
 
 Chapman-Kolmogorov Equations
 ----------------------------
@@ -635,7 +647,8 @@ Classification of States
 ### Classification by $\lambda_{i,i}$
 
 **recurrent**: on average, we can observe $\lambda_{i,i}$ infinite
-number of times\
+number of times
+
 **transient**: on average, we can observe $\lambda_{i,i}$ finite number
 of times
 
@@ -764,15 +777,20 @@ $\lambda$ if
 
    2. prob = $q$ = $1-p$
 
-   and all events are independent. Let\
-   $X_i(t)$ = number of type I events in $(0,t ]$\
-   $X_i(t)$ = number of type II events in $(0,t ]$\
-   Then
+   and all events are independent.
+   
+   
+   
+Let $X_1(t)$ = number of type I events in $(0,t ]$ and $X_2(t)$ = number of type II events in $(0,t ]$
+   
 
+   
+Then
+   
    1.  $X_1(t) \sim Pois(\lambda pt)$
-
+   
    2.  $X_2(t) \sim Pois(\lambda qt)$
-
+   
    3.  $X_1(t)$ and $X_2(t)$ are independent
 
 Continuous Markov Process
