@@ -3,7 +3,8 @@ layout: notes-page
 title: STAT333 Applied Probability - Notes Summary
 permalink: /stat333finalnotes/
 header-includes:
-   - \usepackage{blkarray}
+	- \usepackage{blkarray}
+	- \usepackage{amsmath}
 ---
 
 -   [Introduction](#introduction)
@@ -304,6 +305,7 @@ $$E(X)=E[E(X \|Y)]$$
 
 3.  How to apply $E(X)=E[E(X \|Y)]$ 
 	
+
 $$E(X)=E[E(X\|Y)]=E[g(Y)]$$
 	
 $$= \begin{cases}
