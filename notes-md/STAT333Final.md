@@ -610,18 +610,26 @@ $$\begin{aligned}
         && \Rightarrow \text{ row vector/distribution of $X_0$} \\
     \underline{\underline{\pi}}^{(n)} = (\pi_j^{(0)})=(P(X_n=j))_{j \in S} \\
         && \Rightarrow \text{ row vector/distribution of $X_n$} \end{aligned}$$
+
 **CK-Equations**
 
-1.  CK-equation 1 - n-step transition matrix\
+1.  CK-equation 1 - n-step transition matrix
+
     Pointwise Form:
-    $$p_{ij}^{(n+m)}=\sum_{k\in S}p_{(ik)}^{(n)}p_{kj}^{(m)}$$ Matrix
-    Form:
+    
+    $$p_{ij}^{(n+m)}=\sum_{k\in S}p_{(ik)}^{(n)}p_{kj}^{(m)}$$ 
+    
+    Matrix Form:
+    
     $$\underline{\underline{P}}^{(n)}=\underline{\underline{P}}^n$$
 
-2.  CK-equation 2 - n-step transition probs\
+2.  CK-equation 2 - n-step transition probs
+
     Pointwise Form:
-    $$\pi_j^{(n)}=P(X_n=j)=\sum_{i\in S}\pi_i^{(0)}p_{ij}^{(n)}$$ Matrix
-    Form:
+    
+    $$\pi_j^{(n)}=P(X_n=j)=\sum_{i\in S}\pi_i^{(0)}p_{ij}^{(n)}$$ 
+    
+    Matrix Form:
     $$\underline{\underline{\pi}}^{(n)}=\underline{\underline{\pi}}^{(0)}\;\underline{\underline{P}}^{n}$$
 
 Classification of States
