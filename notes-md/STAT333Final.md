@@ -1,7 +1,9 @@
 ---
 layout: notes-page
 title: STAT333 Applied Probability - Notes Summary
-permalink: /STAT333final/
+permalink: /stat333finalnotes/
+header-includes:
+   - \usepackage{blkarray}
 ---
 
 -   [Introduction](#introduction)
@@ -270,15 +272,16 @@ $$f_{X\|Y}(x\|y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}, f_Y(y)>0$$
 1. Conditional expectation has all properties of normal expectations
 
 2. Substitution Rule
-   $$E[x\times \underbrace{g(Y)}_{random \> variable}\|Y=y]=E(x\times \underbrace{g(y)}_{constant}\|Y=y)=g(y)E(X\|Y=y)$$
+
+$$E[x\times \underbrace{g(Y)}_{random \> variable}\|Y=y]=E(x\times \underbrace{g(y)}_{constant}\|Y=y)=g(y)E(X\|Y=y)$$
+
    In general:
-   $E[\underbrace{h(X,Y)}_{function\> of X\&Y}\|Y=y]=E[\underbrace{h(X,y)}_{function\> of X only}\|Y=y]$
+
+$$E[\underbrace{h(X,Y)}_{function\> of X\&Y}\|Y=y]=E[\underbrace{h(X,y)}_{function\> of X only}\|Y=y]$$
 
 3. Independence Property
 
-   If $X\&Y$ are independent then
-   $$f_{X\|Y}(x,y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}=f_X(x)$$
-   $$\Rightarrow E(X\|Y=y)=E(x) \> and\> E[g(x)\|Y=y]=E[g(x)]$$
+   If $X\&Y$ are independent then $$f_{X\|Y}(x,y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}=f_X(x) \Rightarrow E(X\|Y=y)=E(x) \> and\> E[g(x)\|Y=y]=E[g(x)]$$
 
 Expectation by Conditioning
 ---------------------------
@@ -301,9 +304,9 @@ $$E(X)=E[E(X \|Y)]$$
 
 3.  How to apply $E(X)=E[E(X \|Y)]$ 
 	
-	$$E(X)=E[E(X\|Y)]=E[g(Y)]$$
+$$E(X)=E[E(X\|Y)]=E[g(Y)]$$
 	
-    $$= \begin{cases}
+$$= \begin{cases}
                     \sum_{y}g{y}\times f_Y(y)\\
                     \int_{-\infty}^\infty g{y}\times f_Y(y)dy
                 \end{cases}\\
@@ -324,11 +327,7 @@ Variance by Conditioning
 ------------------------
 
 1.  By definition, 
-
-		$$\begin{aligned}
-            Var(X) = E(X^2)-[E(X)]^2 \\
-                 = E(X^2\|Y)-[E(X\|Y)]^2
-        \end{aligned}$$
+$$Var(X) = E(X^2)-[E(X)]^2 = E(X^2\|Y)-[E(X\|Y)]^2 $$
 
 2.  Conditional Variance Formula $$Var(X\|Y=y)=E(X^2\|Y=y)-[E(X\|Y=y)]^2$$
 
@@ -348,10 +347,12 @@ $$Var(X)=E[Var(X\|Y)]+Var[E(X\|Y)]$$
 
 Suppose $X_1,...,X_n$ are a sequence of iid rvs. $N_i$ is a rv only
 takes non-negative integers. Further $N,X_1,...,X_n$ are independent.
-Then $$W=\sum_{i=1}^N X_i$$ is called a compound rv.\
+Then $$W=\sum_{i=1}^N X_i$$ is called a compound rv.
+
 (If $N=0$, then $W=0$)
 
 $$E(W)=E(N)\times E(X_1)$$
+
 $$Var(W)=E(N)*Var(X_1)+Var(N)\times [E(X_1)]^2$$
 
 Probability Generating Function

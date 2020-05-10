@@ -5,7 +5,7 @@ title: STAT333 - Applied Probability (Spring 2019)
 permalink: /stat333/
 ---
 
-- [Final Review](/STAT333final/)
+- [Final Review](/stat333finalnotes/)
 
 Formal course description can be found [here](https://ugradcalendar.uwaterloo.ca/courses/STAT/333).
 
