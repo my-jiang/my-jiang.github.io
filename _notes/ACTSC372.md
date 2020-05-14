@@ -8,7 +8,7 @@ permalink: /actsc372/
 
 - [Partial Lecture Notes](../notes-pdf/ACTSC372.pdf)
 
-Missing notes from some chapters, they will be uploaded very soon. Formal course description can be found [here](https://ugradcalendar.uwaterloo.ca/courses/ACTSC/372).
+Formal course description can be found [here](https://ugradcalendar.uwaterloo.ca/courses/ACTSC/372).
 
 ### My Thoughts:
 

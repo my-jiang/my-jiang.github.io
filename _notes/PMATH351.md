@@ -7,7 +7,7 @@ permalink: /pmath351/
 
 - [Lecture Notes](../notes-pdf/PMATH351.pdf)
 
-Lecture notes will be updated through out the term.
+Lecture notes will be updated throughout the term.
 
 Formal course description can be found [here](https://ugradcalendar.uwaterloo.ca/courses/PMATH/351).
 

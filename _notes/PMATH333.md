@@ -5,11 +5,9 @@ title: PMATH333 - Introduction to Real Analysis (Fall 2019)
 permalink: /pmath333/
 ---
 
-- [Lecture Notes](../notes-pdf/PMATH333.pdf)
+- [Partial Lecture Notes](../notes-pdf/PMATH333.pdf)
 
 - [Final Review](../notes-pdf/PMATH333Final.pdf)
-
-The lecture note is still under typing, it will be regularly updated and hopefully will be done by the end of this term.
 
 The course is designed to fill the gap between advanced math courses and regular stream, formal course description can be found [here](https://ugradcalendar.uwaterloo.ca/courses/PMATH/333).
 
