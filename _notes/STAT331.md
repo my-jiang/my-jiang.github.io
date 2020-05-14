@@ -6,9 +6,9 @@ permalink: /stat331/
 
 ---
 
+- [Lecture Notes](../notes-pdf/STAT331.pdf)
 
-
-Lecture notes will be updated after the term ends.
+Lecture notes will be updated through out the term.
 
 Formal course description can be found [here](https://ugradcalendar.uwaterloo.ca/courses/STAT/331).
 
