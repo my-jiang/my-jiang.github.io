@@ -4,7 +4,7 @@ title: About Me
 permalink: /about-me/
 ---
 
-Hi there! My name is Iris Jiang. I'm  a 4th-year candidate for Bachelor of Mathematics at the [University of Waterloo](https://www.uwaterloo.ca), majors in [Mathematical Finance](https://uwaterloo.ca/math/future-undergraduates/programs/mathematical-finance) and [Statistics](https://uwaterloo.ca/statistics-and-actuarial-science/), minors in [Pure Mathematics](https://uwaterloo.ca/pure-mathematics/) and [Computational Mathematics](https://uwaterloo.ca/computational-mathematics/).
+Hi there! My name is Iris Jiang. I'm  a 4th-year candidate for Bachelor of Mathematics at the [University of Waterloo](https://www.uwaterloo.ca), majors in [Mathematical Finance](https://uwaterloo.ca/math/future-undergraduates/programs/mathematical-finance) and [Statistics](https://uwaterloo.ca/statistics-and-actuarial-science/), minors in [Pure Mathematics](https://uwaterloo.ca/pure-mathematics/) and [Combinatorics and Optimization (C\&O)](https://uwaterloo.ca/combinatorics-and-optimization/).
 
 
 
