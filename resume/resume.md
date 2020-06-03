@@ -15,7 +15,7 @@ Please find my detailed CV [here](/resume.pdf).
 *Candidate for Bachelor of Mathematics, 2017.9 - 2022.8 (Expected)*
 
 - Majors in Mathematical Finance and Statistics
-- Minors in Pure Mathematics and Computational Mathematics
+- Minors in Pure Mathematics and Combinatorics and Optimization (C\&O)
 
 
 
