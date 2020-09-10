@@ -11,5 +11,5 @@ Formal course description can be found [here](https://ugradcalendar.uwaterloo.ca
 
 ### My Thoughts:
 
-I took the course in spring 2019 with professor Pengfei Li. The difficulty of the course significantly depends on the professor. It starts with conditional probability and expectation/variance. It also provides a gentle introduction to Markov chains, Markov processes and stocastic process.
+I took the course in spring 2019 with Prof. Pengfei Li. The difficulty of the course significantly depends on the professor. It starts with conditional probability and expectation/variance. It also provides a gentle introduction to Markov chains, Markov processes and stocastic process.
 
