@@ -25,10 +25,10 @@ Please find my detailed CV [here](/resume.pdf).
 
 *Undergraduate Research Assistant, 2019.12 - Present*
 
-- Pricing variable annuity with Monte Carlo simulation
+- Pricing hedging of large portfolios of variable annuities
 - Comparison study on nested simulation methods and American option pricing 
 
-**[OneSixtyTwo Capital Inc.](https://onesixtytwocapital.com/)** 
+**[Triumph Asset Management Inc.](https://www.triumphasset.com/) (formerly OneSixtyTwo Capital Inc.)** 
 
 *Quantitative Research, 2020.1 - 2020.4*
 

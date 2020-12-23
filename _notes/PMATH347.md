@@ -14,5 +14,5 @@ Formal course description can be found [here](https://ugradcalendar.uwaterloo.ca
 
 ### My Thoughts:
 
-I took the course in Fall 2020 with Prof. Ross Willard. An entry-level pure math course, similar to Math135. 
+I took the course in Fall 2020 with Prof. Ross Willard. An entry-level pure math course, similar to MATH135. 
 
