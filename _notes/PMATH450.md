@@ -6,4 +6,6 @@ permalink: /pmath450/
 
 ---
 
+Formal course description can be found [here](https://ugradcalendar.uwaterloo.ca/courses/PMATH/450).
+
 Undertaking with Prof. Blake Madill. 

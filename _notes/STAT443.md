@@ -6,4 +6,6 @@ permalink: /stat443/
 
 ---
 
+Formal course description can be found [here](https://ugradcalendar.uwaterloo.ca/courses/STAT/443).
+
 Undertaking with Prof. Gregory Rice. 
