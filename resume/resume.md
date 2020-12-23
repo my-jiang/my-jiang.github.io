@@ -25,7 +25,7 @@ Please find my detailed CV [here](/resume.pdf).
 
 *Undergraduate Research Assistant, 2019.12 - Present*
 
-- Pricing hedging of large portfolios of variable annuities
+- Pricing and hedging of large portfolios of variable annuities
 - Comparison study on nested simulation methods and American option pricing 
 
 **[Triumph Asset Management Inc.](https://www.triumphasset.com/) (formerly OneSixtyTwo Capital Inc.)** 
