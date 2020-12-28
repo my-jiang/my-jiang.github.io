@@ -23,7 +23,7 @@ Please find my detailed CV [here](/resume.pdf).
 
 **[University of Waterloo](https://uwaterloo.ca/)**
 
-*Undergraduate Research Assistant, 2019.12 - Present*
+*Undergraduate Research Assistant, 2019.12 - 2020.12*
 
 - Pricing and hedging of large portfolios of variable annuities
 - Comparison study on nested simulation methods and American option pricing 
