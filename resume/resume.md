@@ -28,7 +28,7 @@ Please find my detailed CV [here](/resume.pdf).
 - Pricing and hedging of large portfolios of variable annuities
 - Comparison study on nested simulation methods and American option pricing 
 
-**[Triumph Asset Management Inc.](https://www.triumphasset.com/) (formerly OneSixtyTwo Capital Inc.)** 
+**[OneSixtyTwo Capital Inc.](https://162digitalcapital.com/)** 
 
 *Quantitative Research, 2020.1 - 2020.4*
 
