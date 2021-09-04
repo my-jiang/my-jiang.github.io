@@ -12,7 +12,7 @@ Please find my detailed CV [here](/resume.pdf).
 
 **[University of Waterloo](https://uwaterloo.ca/)**
 
-*Candidate for Bachelor of Mathematics, 2017.9 - 2022.8 (Expected)*
+*Candidate for Bachelor of Mathematics, 2017.9 - 2022.4 (Expected)*
 
 - Majors in Mathematical Finance and Statistics
 - Minors in Pure Mathematics and Combinatorics and Optimization (C&O)
@@ -21,14 +21,26 @@ Please find my detailed CV [here](/resume.pdf).
 
 ## Experiences
 
+**[OneSixtyTwo Digital Capital](https://162digitalcapital.com/)** 
+
+*Execution Trader, 2021.9 - Present*
+
+- Digital Market Trading
+
+**[TD Bank Group](https://www.td.com/ca/en/personal-banking/)**
+
+*Risk Modeling Analyst, 2021.5 - 2021.8*
+
+- US Retail Model Development
+
 **[University of Waterloo](https://uwaterloo.ca/)**
 
-*Undergraduate Research Assistant, 2019.12 - 2020.12*
+*Undergraduate Research Assistant, 2020.1 - 2020.12*
 
 - Pricing and hedging of large portfolios of variable annuities
 - Comparison study on nested simulation methods and American option pricing 
 
-**[OneSixtyTwo Capital Inc.](https://162digitalcapital.com/)** 
+**[OneSixtyTwo Capital](https://162digitalcapital.com/)** 
 
 *Quantitative Research, 2020.1 - 2020.4*
 
